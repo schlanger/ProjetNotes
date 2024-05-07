@@ -23,6 +23,9 @@ class Note
     #[ORM\Column]
     private ?int $coeff = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $point = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Note
     public function setCoeff(int $coeff): static
     {
         $this->coeff = $coeff;
+
+        return $this;
+    }
+
+    public function getPoint(): ?int
+    {
+        return $this->point;
+    }
+
+    public function setPoint(?int $point): static
+    {
+        $this->point = $point;
 
         return $this;
     }

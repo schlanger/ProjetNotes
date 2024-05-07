@@ -5,6 +5,20 @@
 {% block body %}
     <h1>Relevé de notes </h1>
 
+    <!-- Calcul du nombre total de points -->
+    {% set totalPoints = 0 %}
+    {% for note in notes %}
+        {% set totalPoints = totalPoints + note.point %}
+    {% endfor %}
+
+    <!-- Barre de progression -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: {{ totalPoints }}%;"></div>
+        </div>
+        <div class="text-center mt-2">{{ totalPoints }}%</div>
+    </div>
+
     <div class="table-responsive"> <!-- Utilisation de la classe Bootstrap pour rendre le tableau responsive -->
         <table class="table table-striped table-hover"> <!-- Ajout de classes Bootstrap pour améliorer le style du tableau -->
             <thead>
@@ -13,6 +27,7 @@
                 <th>Note</th>
                 <th>Description</th>
                 <th>Coeff</th>
+                <th>Point</th>
                 <th>Actions</th> <!-- Correction de la typo "actions" -->
             </tr>
             </thead>
@@ -23,6 +38,7 @@
                     <td>{{ note.note }}</td>
                     <td>{{ note.description }}</td>
                     <td>{{ note.coeff }}</td>
+                    <td>{{ note.point }}</td>
                     <td>
                         <a href="{{ path('app_note_show', {'id': note.id}) }}" class="btn btn-sm btn-info">Show</a>
                         <a href="{{ path('app_note_edit', {'id': note.id}) }}" class="btn btn-sm btn-warning">Edit</a>
@@ -33,6 +49,7 @@
                     <td colspan="5">no records found</td>
                 </tr>
             {% endfor %}
+
             </tbody>
         </table>
     </div>

@@ -41,6 +41,15 @@ class NoteType extends AbstractType
                         'class' => 'form-control',
                     ],
                 ])
+            ->add('point',
+                NumberType::class,
+                [
+                    'label' => 'Point',
+                    'attr' => [
+                        'placeholder' => 'Point',
+                        'class' => 'form-control',
+                    ],
+                ])
         ;
     }
 
