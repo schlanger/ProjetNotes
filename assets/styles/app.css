@@ -27,3 +27,19 @@ button {
     border-radius: 15px;
     transition: width 0.3s ease-in-out;
 }
+.container {
+    margin-top: 100px;
+}
+.jumbotron {
+    background-color: #343a40;
+    color: #fff;
+    padding: 2rem 2rem;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion de Notes{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Bienvenue sur votre site de Gestion de Notes</h1>
+            <p class="lead">Consultez facilement et efficacement vos notes et résultats académiques.</p>
+            <hr class="my-4">
+            <p>Connectez-vous pour accéder à votre espace personnel.</p>
+            <a class="btn btn-primary btn-lg" href="{{ path('app_login') }}" role="button">Se connecter</a>
+        </div>
+    </div>
+{% endblock %}

@@ -26,9 +26,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_note_index') }}" class="btn btn-primary">back to list</a>
+    <a href="{{ path('app_note_index') }}" class="btn btn-primary">Retour</a>
 
-    <a href="{{ path('app_note_edit', {'id': note.id}) }}" class="btn btn-warning">edit</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_note_edit', {'id': note.id}) }}" class="btn btn-warning">Modifier</a>
+    {% endif %}
     <br>
     <br>
     {{ include('note/_delete_form.html.twig') }}
