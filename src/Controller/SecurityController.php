@@ -30,12 +30,14 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
-    #[Route('/redirect', name: 'app_redirect',methods: ['GET'])]
+    #[Route('/redirect', name: 'app_redirect', methods: ['GET'])]
     public function redirectsection(UserInterface $user)
     {
-        if ($this->getUser()) {
-            $user = $this->getUser();
-            switch ($user->getRoles()[0]) {
+        if ($user && !empty($user->getRoles())) {
+            $role = $user->getRoles()[0];
+
+            // Effectue la redirection en fonction du rôle
+            switch ($role) {
                 case "ROLE_USER":
                     return $this->redirectToRoute('app_note_index');
 
@@ -43,6 +45,8 @@ class SecurityController extends AbstractController
                     return $this->redirectToRoute('admin');
             }
         }
+
         return $this->redirectToRoute('app_login');
     }
+
 }
