@@ -43,3 +43,6 @@ button {
     background-color: #0056b3;
     border-color: #0056b3;
 }
+.container {
+    padding-top: 10px; /* Ajustez cette valeur pour remonter la navbar */
+}

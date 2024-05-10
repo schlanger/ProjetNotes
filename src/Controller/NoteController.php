@@ -16,17 +16,18 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class NoteController extends AbstractController
 {
     #[Route('/', name: 'app_note_index', methods: ['GET'])]
+    #[IsGranted("ROLE_USER", message: "Seul un utilisateur peut voir ses notes")]
     public function index(NoteRepository $noteRepository): Response
     {
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
         return $this->render('note/index.html.twig', [
-            'notes' => $noteRepository->findAll(),
+            'notes' => $noteRepository->findBy(['user' => $this->getUser()]),
         ]);
     }
 
-    #[Route('/new', name: 'app_note_new', methods: ['GET', 'POST'])]
+    /*#[Route('/new', name: 'app_note_new', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN", message: "Seul un admin peut ajouter une note")]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -48,9 +49,10 @@ class NoteController extends AbstractController
             'note' => $note,
             'form' => $form,
         ]);
-    }
+    }*/
 
     #[Route('/{id}', name: 'app_note_show', methods: ['GET'])]
+    #[IsGranted("ROLE_USER", message: "Seul un utilisateur peut voir ses notes")]
     public function show(Note $note): Response
     {
         if (!$this->getUser()) {
@@ -61,7 +63,7 @@ class NoteController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_note_edit', methods: ['GET', 'POST'])]
+    /*#[Route('/{id}/edit', name: 'app_note_edit', methods: ['GET', 'POST'])]
     #[IsGranted("ROLE_ADMIN", message: "Seul un admin peut modifier une note")]
     public function edit(Request $request, Note $note, EntityManagerInterface $entityManager): Response
     {
@@ -96,5 +98,5 @@ class NoteController extends AbstractController
         }
 
         return $this->redirectToRoute('app_note_index', [], Response::HTTP_SEE_OTHER);
-    }
+    }*/
 }

@@ -40,7 +40,7 @@ class SecurityController extends AbstractController
                     return $this->redirectToRoute('app_note_index');
 
                 case "ROLE_ADMIN":
-                    return $this->redirectToRoute('app_home');
+                    return $this->redirectToRoute('admin');
             }
         }
         return $this->redirectToRoute('app_login');

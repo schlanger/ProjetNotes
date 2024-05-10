@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ note.description }}</td>
+                <td>{{ note.description|raw }}</td>
             </tr>
             <tr>
                 <th>Coeff</th>
@@ -28,10 +28,7 @@
 
     <a href="{{ path('app_note_index') }}" class="btn btn-primary">Retour</a>
 
-    {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('app_note_edit', {'id': note.id}) }}" class="btn btn-warning">Modifier</a>
-    {% endif %}
+
     <br>
     <br>
-    {{ include('note/_delete_form.html.twig') }}
 {% endblock %}

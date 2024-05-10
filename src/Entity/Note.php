@@ -26,6 +26,9 @@ class Note
     #[ORM\Column(nullable: true)]
     private ?int $point = null;
 
+    #[ORM\ManyToOne(inversedBy: 'notes')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Note
     public function setPoint(?int $point): static
     {
         $this->point = $point;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
