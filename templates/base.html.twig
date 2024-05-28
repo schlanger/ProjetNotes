@@ -11,6 +11,10 @@
                 <a class="scroll-to-section" href="{{ path('app_logout') }}">
                     <i class="fas fa-sign-out-alt"></i> Se déconnecter
                 </a>
+                <br>
+                <a class="scroll-to-section" href="{{ path('app_user_edit',{'id': app.user.id}) }}">
+                    <i class="fas fa-solid fa-user"></i> Mon compte
+                </a>
         </nav>
             {% endif %}
         </div>

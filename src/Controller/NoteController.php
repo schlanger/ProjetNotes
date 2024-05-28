@@ -27,29 +27,6 @@ class NoteController extends AbstractController
         ]);
     }
 
-    /*#[Route('/new', name: 'app_note_new', methods: ['GET', 'POST'])]
-    #[IsGranted("ROLE_ADMIN", message: "Seul un admin peut ajouter une note")]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        if (!$this->getUser()) {
-            return $this->redirectToRoute('app_login');
-        }
-        $note = new Note();
-        $form = $this->createForm(NoteType::class, $note);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($note);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_note_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('note/new.html.twig', [
-            'note' => $note,
-            'form' => $form,
-        ]);
-    }*/
 
     #[Route('/{id}', name: 'app_note_show', methods: ['GET'])]
     #[IsGranted("ROLE_USER", message: "Seul un utilisateur peut voir ses notes")]
@@ -62,41 +39,4 @@ class NoteController extends AbstractController
             'note' => $note,
         ]);
     }
-
-    /*#[Route('/{id}/edit', name: 'app_note_edit', methods: ['GET', 'POST'])]
-    #[IsGranted("ROLE_ADMIN", message: "Seul un admin peut modifier une note")]
-    public function edit(Request $request, Note $note, EntityManagerInterface $entityManager): Response
-    {
-        if (!$this->getUser()) {
-            return $this->redirectToRoute('app_login');
-        }
-        $form = $this->createForm(NoteType::class, $note);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_note_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('note/edit.html.twig', [
-            'note' => $note,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_note_delete', methods: ['POST'])]
-    #[IsGranted("ROLE_ADMIN", message: "Seul un admin peut supprimer une note")]
-    public function delete(Request $request, Note $note, EntityManagerInterface $entityManager): Response
-    {
-        if (!$this->getUser()) {
-            return $this->redirectToRoute('app_login');
-        }
-        if ($this->isCsrfTokenValid('delete'.$note->getId(), $request->getPayload()->get('_token'))) {
-            $entityManager->remove($note);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_note_index', [], Response::HTTP_SEE_OTHER);
-    }*/
 }
