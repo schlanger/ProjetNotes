@@ -30,7 +30,6 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('email'),
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('classe'),
@@ -38,6 +37,7 @@ class UserCrudController extends AbstractCrudController
                 'Etudiant' => 'ROLE_USER',
                 'Administrateur' => 'ROLE_ADMIN',
             ])->allowMultipleChoices(),
+            TextField::new('email'),
             TextField::new('password')->setFormType(PasswordType::class),
         ];
     }

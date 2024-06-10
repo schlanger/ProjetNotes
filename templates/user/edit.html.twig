@@ -15,12 +15,6 @@
                         {{ form_errors(form) }}
                         {{ form_start(form) }}
                         <div class="form-group">
-                            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
-                        </div>
-                        <div class="form-group">
                             {{ form_row(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
                         </div>
                         <div class="form-group">
@@ -29,6 +23,12 @@
 
                         <div class="form-group">
                             {{ form_row(form.classe, {'attr': {'class': 'form-control', 'placeholder': 'Classe'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
                         </div>
 
 

@@ -46,3 +46,17 @@ button {
 .container {
     padding-top: 10px; /* Ajustez cette valeur pour remonter la navbar */
 }
+.text-left
+{
+    top:-30px;
+    left:0px;
+    width: 200px;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: left bottom ;
+    position:absolute;
+}
+.table-responsive {
+    background-color: white;
+    justify-content: center;
+}
