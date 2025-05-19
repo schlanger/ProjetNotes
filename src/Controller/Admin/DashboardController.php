@@ -43,12 +43,12 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('ProjetNotes');
+            ->setTitle('CryptORT Admin');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
         yield MenuItem::linkToCrud('Notes', 'fa fa-list', Note::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
     }
